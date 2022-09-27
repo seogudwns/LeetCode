@@ -19,22 +19,4 @@ class Solution:
         
         return True
 
-#         dif = []
-#         words = [i for i in range(26)]
-#         for i in equations:
-#             xy = sorted([ord(i[0])-97,ord(i[3])-97])
-#             if i[1] == '!':
-#                 dif.append(xy)
-#             else:
-#                 num = words[xy[0]]
-#                 chan = words[xy[1]]
-#                 for j in range(26):
-#                     if words[j] == chan:
-#                         words[j] = num
-                        
-#         for i,j in dif:
-#             if words[i] == words[j]:
-#                 return False
-        
-#         return True
         
