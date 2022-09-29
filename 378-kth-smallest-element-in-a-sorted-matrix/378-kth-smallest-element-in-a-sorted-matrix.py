@@ -1,8 +1,14 @@
-import heapq
+# import heapq
 
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+    
+        
+    
+#         # second
         return sorted(sum(matrix,[]))[k-1]
+    
+#         # first
 #         lst = []
 #         for i in matrix:
 #             for j in i:
