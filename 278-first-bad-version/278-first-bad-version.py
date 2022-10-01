@@ -3,6 +3,11 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
+        # for i in range(1,n+1):
+        #     if isBadVersion(i):
+        #         return i
+        # time limit exceeded.
+        
         left = 1
         right = n
         while True:
