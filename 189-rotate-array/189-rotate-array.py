@@ -5,7 +5,7 @@ class Solution:
         """
         # print(nums,k)
         leng = len(nums)
-        if leng <= 1 or k == 0 or k == leng:
+        if k == 0 or k == leng or leng <= 1:
             return nums
         
         k = k%leng
