@@ -1,7 +1,7 @@
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         leng = len(nums)
-        if k == 0 or k == leng or leng <= 1:
+        if leng <= 1 or k == 0 or k == leng:
             return nums
         
         k = k%leng
