@@ -31,33 +31,54 @@ class Solution:
             
 #         return result
     # 합치면 더 효율이 좋기는 하지만 귀찮다.. 합치자.. 효율 개똥망이네.
-        def calc_remind_maxi(lst):
-            if len(lst) == 1:
-                return 0
+#         def calc_remind_maxi(lst):
+#             if len(lst) == 1:
+#                 return 0
             
-            subt = 0
-            maxi = 0
-            for j in lst:
-                subt += neededTime[j]
-                if neededTime[j]>maxi:
-                    maxi = neededTime[j]
+#             subt = 0
+#             maxi = 0
+#             for j in lst:
+#                 subt += neededTime[j]
+#                 if neededTime[j]>maxi:
+#                     maxi = neededTime[j]
+#             return subt-maxi
+        
+#         leng = len(colors)
+#         curr = colors[0]
+#         tmp = [0]
+#         result = 0
+        
+#         for i in range(1,leng):
+#             if colors[i] != curr:
+#                 curr = colors[i]
+#                 result += calc_remind_maxi(tmp)
+#                 tmp = [i]
+                
+#             else:
+#                 tmp.append(i)
+        
+#         if len(tmp)>1:
+#             result += calc_remind_maxi(tmp)
+            
+#         return result
+#         # 좀 더 개선해보자.
+        def calc_remind_maxi(start,end):
+            subt = sum(neededTime[start:end])
+            maxi = max(neededTime[start:end])
             return subt-maxi
         
         leng = len(colors)
         curr = colors[0]
-        tmp = [0]
+        start = 0
         result = 0
         
         for i in range(1,leng):
             if colors[i] != curr:
                 curr = colors[i]
-                result += calc_remind_maxi(tmp)
-                tmp = [i]
-                
-            else:
-                tmp.append(i)
+                result += calc_remind_maxi(start,i)
+                start = i
         
-        if len(tmp)>1:
-            result += calc_remind_maxi(tmp)
-            
+        if start != i:
+            result += calc_remind_maxi(start,leng)
+        
         return result
