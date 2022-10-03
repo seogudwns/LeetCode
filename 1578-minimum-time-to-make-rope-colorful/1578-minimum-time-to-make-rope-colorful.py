@@ -62,10 +62,6 @@ class Solution:
             
 #         return result
 #         # 좀 더 개선해보자.
-        def calc_remind_maxi(start,end):
-            subt = sum(neededTime[start:end])
-            maxi = max(neededTime[start:end])
-            return subt-maxi
         
         leng = len(colors)
         curr = colors[0]
@@ -75,10 +71,10 @@ class Solution:
         for i in range(1,leng):
             if colors[i] != curr:
                 curr = colors[i]
-                result += calc_remind_maxi(start,i)
+                result += sum(neededTime[start:i])-max(neededTime[start:i])
                 start = i
         
         if start != i:
-            result += calc_remind_maxi(start,leng)
+            result += sum(neededTime[start:leng])-max(neededTime[start:leng])
         
         return result
