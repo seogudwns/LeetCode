@@ -18,9 +18,8 @@ class Solution:
                 
             for j in range(1,leng2//2+1):
                 if sc[:2*j] == sc[:j]*2:
-                    # print(sc,sc[:2*j])
                     dp[i+j] = max(dp[i]+1,dp[j])
-                    # dp[-1] = max(dp[i+j],dp[-1])
+            leng2 -= 1
         # print(dp)
         
         return max(dp)
