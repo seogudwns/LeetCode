@@ -1,5 +1,3 @@
-
-
 class Solution:
     def deleteString(self, s: str) -> int:
         if len(set(s)) == 1:
