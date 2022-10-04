@@ -16,7 +16,7 @@ class Solution:
                 
             for j in range(1,leng2//2+1):
                 if sc[:2*j] == sc[:j]*2:
-                    dp[i+j] = max(dp[i]+1,dp[j])
+                    dp[i+j] = max(dp[i]+1,dp[i+j])
             leng2 -= 1
         # print(dp)
         
