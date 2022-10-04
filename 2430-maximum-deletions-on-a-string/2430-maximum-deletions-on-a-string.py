@@ -21,3 +21,4 @@ class Solution:
         # print(dp)
         
         return max(dp)
+        return dp[-1]
