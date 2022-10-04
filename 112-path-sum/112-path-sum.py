@@ -1,5 +1,3 @@
-from collections import deque
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -27,9 +25,9 @@ class Solution:
 #         last_sum(root,0)
 #         # print(nums)
 #         return targetSum in nums
-        Q = deque([(0,root)])
+        Q = [(0,root)]
         while Q:
-            val,tree = Q.popleft()
+            val,tree = Q.pop()
             val += tree.val
             if not tree.left and not tree.right:
                 if val == targetSum:
