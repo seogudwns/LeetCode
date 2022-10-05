@@ -11,10 +11,9 @@ class Solution:
             check = check.next
             leng += 1
 
-        check = head
         leng //= 2
         while leng:
-            check = check.next
+            head = head.next
             leng -= 1
         
-        return check
+        return head
