@@ -26,7 +26,6 @@ class Solution:
             levelOrd(root.right, level+1)
         
         levelOrd(root, 0)
-        print(node_dict)
         
         last = 2
         for i in range(1,len(node_dict)):
