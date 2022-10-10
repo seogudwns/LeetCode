@@ -23,11 +23,11 @@ class Solution:
             lst.append(head.val)
             head = head.next
             
-        result = ListNode(val=lst[-1])
+        result = ListNode(val=lst.pop())
         current = result
         
-        for i in lst[-2::-1]:
-            current.next = ListNode(val=i)
+        while lst:
+            current.next = ListNode(val=lst.pop())
             current=current.next
         
         return result
