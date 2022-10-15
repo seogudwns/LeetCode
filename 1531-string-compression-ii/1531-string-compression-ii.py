@@ -23,6 +23,9 @@ class Solution:
                     best=min(best,go(last,count,index+1,left-1))
             return best
         
-        return go(-1,0,0,k)
+        x = go(-1,0,0,k)
+        go.cache_clear()
+        
+        return x
                 
     
