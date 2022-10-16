@@ -81,6 +81,6 @@ class Solution:
             return ans
         x = dp(0,d)
         
-        dp.cache_clear()
+        # dp.cache_clear()
         
         return x
