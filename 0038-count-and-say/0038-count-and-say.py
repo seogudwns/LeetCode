@@ -1,3 +1,4 @@
+# 22.10.18 daily.
 class Solution:
     def countAndSay(self, n: int) -> str:
         def change(x):
