@@ -21,6 +21,7 @@ class Solution:
             dp[0][i] = num
         # define first days.
         # In dp[0], each value of dp[0][i] = max(jobDifficulty[:i])
+        
         for i in range(1,d-1):
             for j in range(i,leng):
                 for k in range(i-1,j):
@@ -36,7 +37,8 @@ class Solution:
         
         # for i in dp:
         #     print(i)
-            
+        maxi.cache_clear()
+        
         return min(dp[-1][d:])
 
 # ex1. 654321, 2
