@@ -1,37 +1,36 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         lens = len(s)
-        if lens < len(t): 
+        if lens < len(t):
             return ""
         
-        minLength = lens + 1
-        count = Counter(t)
-        distincts = len(count)
-        
+        leng = lens+1
+        res = lens+1
+        cntt = Counter(t)
+        distinct = len(cntt)
         i,j = 0,0
-        minI = -1
-        minJ = -1
-
-        while j < len(s):
-            if s[j] in count:
-                count[s[j]] -= 1
-                
-                if count[s[j]] == 0: 
-                    distincts -= 1
-
-            while distincts == 0:
-                if j - i + 1 < minLength:
-                    minLength = j - i + 1
-                    minI = i
-                    minJ = j
+        li,lj = -1,-1
+        
+        while j < lens:
+            sj = s[j]
+            if sj in cntt:
+                cntt[sj] -= 1
+                if cntt[sj] == 0:
+                    distinct -= 1
+            
+            while distinct == 0:
+                if j-i+1 < res:
+                    res = j-i+1
+                    li,lj = i,j
                     
-                if s[i] in count: 
-                    count[s[i]] += 1
-                    if count[s[i]] == 1 : 
-                        distincts += 1
-
+                si = s[i]
+                if si in cntt:
+                    cntt[si] += 1
+                    if cntt[si] == 1:
+                        distinct += 1
+                
                 i += 1
-
+            
             j += 1
-
-        return s[minI:minJ + 1]
+        
+        return s[li:lj+1]
