@@ -1,6 +1,6 @@
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
-        # MLE.. 사실 당연.
+        # MLE.. 사실 당연.. 은 아닌가?
         nums = []
         for i in range(len(arr)):
             tmp = 0
