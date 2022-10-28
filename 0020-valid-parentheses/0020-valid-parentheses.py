@@ -1,8 +1,9 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         dic = {')':'(',']':'[','}':'{'}
-        op,cl = list(dic.values()),list(dic.keys())
+        op = list(dic.values())
         lst = []
+        
         for i in s:
             if i in op:
                 lst.append(i)
