@@ -16,5 +16,4 @@ class Solution:
                 else:
                     return check(i+1,j-1)
         
-        res = [check(0,i) for i in range(n)]
-        return res
+        return [check(0,i) for i in range(n)]
