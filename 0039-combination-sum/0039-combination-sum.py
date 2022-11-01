@@ -22,3 +22,4 @@ class Solution:
                 Q.append(x+[i])
         
         return res
+# 아니 이게 통과를 한다고??...ㅋㅋㅋㅋㅋㅋㅋㅋ
