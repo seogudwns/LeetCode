@@ -12,5 +12,7 @@ class Solution:
                 counter[rvs] -= 1
             else:
                 counter[word] += 1
-
-        return 2*(2*res+any(word[0] == word[1] for word in counter if counter[word]>0)) 
+        
+        res = 2*(2*res+any(word[0] == word[1] for word in counter if counter[word]>0))
+        del counter
+        return res
