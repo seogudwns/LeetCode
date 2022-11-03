@@ -4,7 +4,8 @@ class Solution:
         counter = Counter()
 
         res = 0
-        for word in words:
+        while words:
+            word = words.pop()
             rvs = word[::-1]
             
             if counter[rvs] > 0:
@@ -14,5 +15,5 @@ class Solution:
                 counter[word] += 1
         
         res = 2*(2*res+any(word[0] == word[1] for word in counter if counter[word]>0))
-        del counter
+        # del counter
         return res
