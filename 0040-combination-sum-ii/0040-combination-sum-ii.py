@@ -20,9 +20,7 @@ class Solution:
             for i in range(start,leng):                    
                 if i > start and candidates[i] == candidates[i - 1]:
                     continue
-                lst.append(candidates[i])
-                bt(i+1,target-candidates[i],lst)
-                lst.pop()
+                bt(i+1,target-candidates[i],lst+[candidates[i]])
             
             return
         bt(0,target,[])
