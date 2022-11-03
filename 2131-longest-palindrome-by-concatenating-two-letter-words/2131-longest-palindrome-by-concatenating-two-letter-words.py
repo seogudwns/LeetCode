@@ -1,0 +1,16 @@
+# 22.11.03 daily
+class Solution:
+    def longestPalindrome(self, words: List[str]) -> int:
+        counter = Counter()
+
+        res = 0
+        for word in words:
+            rvs = word[::-1]
+            
+            if counter[rvs] > 0:
+                res += 1
+                counter[rvs] -= 1
+            else:
+                counter[word] += 1
+
+        return 2*(2*res+any(word[0] == word[1] for word in counter if counter[word]>0)) 
