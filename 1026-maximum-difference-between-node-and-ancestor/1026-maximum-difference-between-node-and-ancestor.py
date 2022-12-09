@@ -8,18 +8,18 @@ class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
         res = 0
         
-        Q = deque([(root,[])])
+        Q = deque([(root,root.val,root.val)])
         while Q:
-            x,lines = Q.popleft()
+            x,maxi,mini = Q.popleft()
             
-            curr = x.val
-            for i in lines:
-                res = max(res,abs(i-curr))
+            if not x.right and not x.left:
+                res = max(res,maxi-mini)
+                continue
                 
             if x.left:
-                Q.append((x.left,lines+[curr]))
+                Q.append((x.left,max(maxi,x.left.val),min(mini,x.left.val)))
                 
             if x.right:
-                Q.append((x.right,lines+[curr]))
+                Q.append((x.right,max(maxi,x.right.val),min(mini,x.right.val)))
         
         return res
