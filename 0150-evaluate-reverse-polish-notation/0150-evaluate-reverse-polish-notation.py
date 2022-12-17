@@ -17,14 +17,7 @@ class Solution:
                     x *= S.pop()
                 elif i == '/':
                     x = S.pop()//x if x*S[-1]>=0 else - (abs(S.pop())//abs(x))
-                    # tmp = S.pop()
-                    # if tmp == 0:
-                    #     x = 0
-                    # elif x*tmp > 0:
-                    #     x = tmp//x
-                    # else:
-                    #     x = - (abs(tmp)//abs(x))
-            # print(S,x)
+                    
         return x
         
         
