@@ -13,6 +13,7 @@ class Solution:
                 m = (dx//G,dy//G)
                 
                 slope[m] += 1
-                if slope[m] > M: M = slope[m]
+                
+            M = max(max(slope.values()),M) if slope else M
     
         return M + 1
