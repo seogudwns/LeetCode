@@ -6,7 +6,8 @@ class Solution:
             if len(sp)>4:
                 return
             if len(sp) == 4 and curr == leng:
-                res.append('.'.join(sp))
+                sp = [0]+sp
+                res.append('.'.join([s[sp[i]:sp[i+1]] for i in range(4)]))
                 return
             
             for i in range(curr+1,min(curr+4,leng+1)):
@@ -14,7 +15,7 @@ class Solution:
                 if str(int(tmp)) != tmp:
                     continue
                 if int(tmp)<256:
-                    add_res(s,sp+[tmp],i)
+                    add_res(s,sp+[i],i)
             
         add_res(s,[],0)
         
