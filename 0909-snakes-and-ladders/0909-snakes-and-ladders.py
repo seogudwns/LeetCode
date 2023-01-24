@@ -16,8 +16,7 @@ class Solution:
                     nxt = arr[i] if arr[i]+1 else i
                     if nxt in seen: continue
                     seen.add(nxt)
-                    queue.append(nxt)                       #  <–– build queue for next level
-                    
+                    queue.append(nxt)
             ct += 1                    
         
         return -1
