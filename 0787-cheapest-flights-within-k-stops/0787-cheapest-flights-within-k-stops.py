@@ -1,13 +1,11 @@
 class Solution:
     def bfs(self,curr,ks,char):
-        if self.check[ks][curr]<=char or self.ans < char:
-            return
+        if self.check[ks][curr]<=char or self.ans < char: return
         self.check[ks][curr] = char
-        # print(curr,ks,char)
-        if curr == self.dst:
-            self.ans = min(self.ans,char)
+        
+        if curr == self.dst or ks == self.k:
+            if curr == self.dst: self.ans = min(self.ans,char)
             return
-        if ks == self.k: return
         
         for i in self.mv[curr]:
             self.bfs(i,ks+1,char+self.charges[(curr,i)])
