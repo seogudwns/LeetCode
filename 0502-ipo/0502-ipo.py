@@ -1,5 +1,19 @@
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+        profits = sorted(zip(capital,profits),key=lambda x: (-x[0],x[1]))
+        capital.clear()
+        while True:
+            if k == 0: break
+            
+            while profits and profits[-1][0] <= w: heapq.heappush(capital,-profits.pop()[1])
+            
+            if not capital: break
+            w -= heapq.heappop(capital)
+            k -= 1
+        
+        return w
+            
+#         # 첫+ 풀이.. TLE
 #         maxi = []
         
 #         dic = defaultdict(list)
@@ -27,16 +41,3 @@ class Solution:
 #             w += x
             
 #         return w
-        cap_pro = sorted(zip(capital,profits),key=lambda x: (-x[0],x[1]))
-        candid = []
-        while True:
-            if k == 0: break
-            
-            while cap_pro and cap_pro[-1][0] <= w: heapq.heappush(candid,-cap_pro.pop()[1])
-            
-            if not candid: break
-            w -= heapq.heappop(candid)
-            k -= 1
-        
-        return w
-            
