@@ -13,5 +13,4 @@ class Solution:
                 
             return (ans + dp(idx+1, gain, n))%mod
         
-        dp.cache_clear()
         return dp()
