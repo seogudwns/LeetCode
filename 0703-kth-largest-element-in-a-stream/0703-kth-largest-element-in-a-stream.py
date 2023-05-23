@@ -4,7 +4,7 @@ class KthLargest:
         self.nums,self.k = sorted(nums),k
 
     def add(self, val: int) -> int:
-        insort_right(self.nums,val)
+        if len(self.nums)<self.k or self.nums[0]<val: insort_right(self.nums,val)
         return self.nums[-self.k]
 
 
