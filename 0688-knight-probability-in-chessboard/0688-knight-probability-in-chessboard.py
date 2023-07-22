@@ -1,7 +1,5 @@
 class Solution:
     def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
-        
-        Q,N = deque([(row,column)]),[0 for _ in range(k+1)]
         rot = [(1,2),(2,1),(2,-1),(1,-2),(-1,-2),(-2,-1),(-2,1),(-1,2)]
         
         @lru_cache(None)
