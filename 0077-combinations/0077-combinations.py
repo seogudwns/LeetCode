@@ -4,11 +4,10 @@ class Solution:
         ans = []
         for i in range(1,1<<n):
             if bin(i).count('1')==k:
-                x = bin(i)[::-1]
                 tmp = []
-                for i in range(len(x)):
-                    if x[i] == '1':
-                        tmp.append(i+1)
+                for j in range(n):
+                    if i & 1<<j:
+                        tmp.append(j+1)
                 ans.append(tmp)
                 
         return ans
