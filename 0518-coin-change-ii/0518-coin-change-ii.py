@@ -5,10 +5,7 @@ class Solution:
         for i in range(len(coins)):
             for j in range(coins[i],amount+1):
                 dp[j]+=dp[j-coins[i]]
-        print(dp[-10:])
         return dp[-1]
-        
-        
         
 # #         TLE
 #         n,coins = len(coins),sorted(coins)
