@@ -3,9 +3,9 @@ class Solution:
         dp = [0 for _ in range(amount+1)]
         dp[0] = 1
         for i in range(len(coins)):
-            for j in range(i,amount+1):
-                if j>=coins[i]: dp[j]+=dp[j-coins[i]]
-        
+            for j in range(coins[i],amount+1):
+                dp[j]+=dp[j-coins[i]]
+        print(dp[-10:])
         return dp[-1]
         
         
