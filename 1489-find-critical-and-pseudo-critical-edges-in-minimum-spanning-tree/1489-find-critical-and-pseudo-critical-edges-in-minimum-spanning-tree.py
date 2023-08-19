@@ -21,16 +21,13 @@ class UnionFind:
 class Solution:
     def findCriticalAndPseudoCriticalEdges(self, n: int, edges: List[List[int]]) -> List[List[int]]:
 
-        edges = [(w,a,b,i) for i, (a,b,w) in enumerate(edges)]
-        edges.sort()
-
+        edges = sorted([(w,a,b,i) for i, (a,b,w) in enumerate(edges)])
+        
         uf1 = UnionFind(n)
         for w, a, b, _ in edges:
             uf1.union(a, b, w)
 
-
         minWeight = uf1.weight
-
 
         ce = []
         pce = []
@@ -40,8 +37,7 @@ class Solution:
         for i in range(m):
             uf2 = UnionFind(n)
             for j in range(m):
-                if i == j:
-                    continue
+                if i == j: continue
                 w,a,b,_ = edges[j]
                 uf2.union(a,b,w)
             
@@ -54,6 +50,7 @@ class Solution:
                 w,a,b,_ = edges[i]
                 uf3.union(a,b,w)
                 for j in range(m):
+                    if i==j: continue
                     w,a,b,_ = edges[j]
                     uf3.union(a,b,w)
                 
