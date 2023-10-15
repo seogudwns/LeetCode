@@ -10,9 +10,8 @@ class Solution:
         else:
             return (self.chk(res-1,loc-1)+self.chk(res-1,loc)+self.chk(res-1,loc+1))%self.MOD
 
-    
     def numWays(self, steps: int, arrLen: int) -> int:
         if arrLen == 1: return 1
-        self.MOD,self.arrLen = 10**9+7,arrLen-1
+        self.MOD,self.arrLen = 10**9+7,min(steps//2+1,arrLen-1)
         return self.chk(steps,0)
         
