@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head.val == 0 and not head.next: return ListNode(val=0)
+        # if head.val == 0 and not head.next: return ListNode(val=0)
         
         curr = head
         bef = head
@@ -17,11 +17,9 @@ class Solution:
             curr = curr.next
             
         while curr:
-            if curr.val>=5:
-                bef.val += 1
-                curr.val = 2*curr.val-10
-            else:
-                curr.val = 2*curr.val
+            x,y = divmod(curr.val*2,10)
+            curr.val = y
+            if x: bef.val += 1
             bef,curr = curr,curr.next
         
         return head
