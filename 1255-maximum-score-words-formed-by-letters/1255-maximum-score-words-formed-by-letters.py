@@ -16,14 +16,9 @@ class Solution:
                         for k in words[j]:
                             tmp[ord(k)-97]+=1
                 
-                for j in range(26):
-                    if rem[j]<tmp[j]:
-                        fails.add(i)
-                        break
-                else:
+                if all(rem[j]-tmp[j]>=0 for j in range(26)):
                     ans = max(ans,sum(tmp[i]*score[i] for i in range(26)))
-        
+                else:
+                    fails.add(i)
+                    
         return ans
-                                
-        
-        
